@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            <ui:insert name="title">Default Title</ui:insert>
+        </title>
+        <ui:insert name="cssStyle">Default style</ui:insert>
+        <ui:insert name="js">Default script</ui:insert>
+    </h:head>
+
+    <h:body>
+        <!--Header-->
+        <!--        <ui:insert name="header">
+                    <ui:include src="Component/Header/header.xhtml"/>
+                </ui:insert>-->
+
+        <!--Main Content-->
+        <main class="main-content">
+            <!--            <ui:insert name="content">
+                            <ui:include src="Component/Content/SearchAndTable/searchTable.xhtml"/>
+                        </ui:insert>-->
+
+            <ui:insert name="dashboard">
+                <ui:include src="Component/Content/Dashboard/dashboardTemplet.xhtml"/>
+            </ui:insert>
+        </main>
+
+        <!--Footer-->
+        <ui:insert name="footer">
+            <ui:include src="Component/Footer/footer.xhtml"/>
+        </ui:insert>
+    </h:body>
+</html>

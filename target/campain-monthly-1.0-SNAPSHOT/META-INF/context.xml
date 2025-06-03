@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/campain-monthly">
+  <Resource connectionProperties="useUnicode=yes;characterEncoding=UTF-8;" 
+            driverClassName="com.mysql.jdbc.Driver" maxActive="15" maxIdle="-1" 
+            maxWait="30000" 
+            name="jdbc/operator1" password="Operator6@2019" 
+            type="javax.sql.DataSource" 
+            url="jdbc:mysql://192.168.0.36:3306/takarub_competition" username="operator6"/>
+</Context>
