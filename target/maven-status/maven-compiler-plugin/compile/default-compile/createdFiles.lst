@@ -1,9 +1,0 @@
-com\takarub\bean\DataSearchEntity.class
-com\takarub\bean\DataService.class
-com\takarub\bean\DateRange.class
-com\takarub\bean\DataBean.class
-com\takarub\config\ExcelConfig.class
-com\takarub\bean\DataEntity.class
-com\takarub\dao\Dao.class
-com\takarub\dao\ContentDao.class
-com\takarub\bean\TestBean.class
