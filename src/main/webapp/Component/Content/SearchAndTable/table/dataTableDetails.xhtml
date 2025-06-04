@@ -14,6 +14,7 @@
                  >
 
         <f:facet name="header">
+            <h:outputText  value="Count : #{campaignBean.data.size()}"/>
             <p:commandLink value="" 
                            styleClass="mr-2 mb-2" 
                            actionListener="#{campaignBean.prepareDownload()}"
@@ -23,7 +24,7 @@
                 <f:setPropertyActionListener target="#{campaignBean.dataTable}" value="#{dataTableTest}" />
             </p:commandLink>
         </f:facet>
-
+        
         <p:column headerText="Code">
             <h:outputText value="#{item.code}" />
         </p:column>
@@ -41,5 +42,7 @@
         <p:column headerText="MSISDN">
             <h:outputText value="#{item.msisdn}" />
         </p:column>
+        
+        
     </p:dataTable>
 </ui:composition>
