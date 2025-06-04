@@ -8,7 +8,7 @@
     <!--category-->
     <div id="category-search-container">
         <h:outputLabel for="category" value="category : "/>
-        <p:selectOneMenu id="category" value="#{testBean.dataSearchEntity.category}"
+        <p:selectOneMenu id="category" value="#{campaignBean.dataSearchEntity.category}"
                          required="true" label="Category" requiredMessage="Please Select Category"
                          style="width: 12rem; margin-top: 10px">
             <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
@@ -24,7 +24,7 @@
         yearNavigator="true"-->
         <div id="start-date-container">
             <p:outputLabel for="start" value="Start Date :" />
-            <p:datePicker id="start" value="#{testBean.dataSearchEntity.startDate}"
+            <p:datePicker id="start" value="#{campaignBean.dataSearchEntity.startDate}"
                           required="true" requiredMessage="Please Select Start Date"
                           pattern="dd/MM/yyyy"
                           style="width: 100%; margin-top: 10px"/>
@@ -32,7 +32,7 @@
 
         <div id="end-date-container">
             <p:outputLabel for="end" value="End Date :" />
-            <p:datePicker id="end" value="#{testBean.dataSearchEntity.endDate}"
+            <p:datePicker id="end" value="#{campaignBean.dataSearchEntity.endDate}"
                           required="true" requiredMessage="Please Select End Date"
                           pattern="dd/MM/yyyy"
                           style="width: 100%; margin-top: 10px"/>
@@ -40,14 +40,13 @@
         </div>
 
     </div>
-    <!--<p:commandButton value="Search" update="form" actionListener="{testBean.search}" />-->
 
     <!--search-->
     <p:commandButton id="search-btn"
                      value="Search"
                      update="form:dataTableTest form:growl"
                      process="@form"
-                     actionListener="#{testBean.search}" 
+                     actionListener="#{campaignBean.search}" 
                      styleClass="search-btn"
                      style="width: 20%; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; margin: 0px"/>
 

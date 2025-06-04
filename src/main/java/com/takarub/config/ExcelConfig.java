@@ -1,5 +1,6 @@
 package com.takarub.config;
 
+import com.takarub.model.DataSearchEntity;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -28,7 +29,8 @@ import org.primefaces.component.datatable.DataTable;
  */
 public class ExcelConfig {
 
-    public void prepareDownload(UIData dataTable) throws IOException, InvalidFormatException {
+    public void prepareDownload(UIData dataTable, DataSearchEntity dataSearchEntity) throws IOException, InvalidFormatException {
+
         FacesContext context = FacesContext.getCurrentInstance();
         dataTable = (UIData) context.getViewRoot().findComponent("form:dataTableTest");
 
@@ -37,10 +39,10 @@ public class ExcelConfig {
             return;
         }
 
-        downloadDataTableData("myData", dataTable); // Call download method
+        downloadDataTableData(dataTable, dataSearchEntity); // Call download method
     }
 
-    public void downloadDataTableData(String filename, UIData dataTable) throws IOException, InvalidFormatException {
+    public void downloadDataTableData(UIData dataTable, DataSearchEntity dataSearchEntity) throws IOException, InvalidFormatException {
         List<?> data = (List<?>) dataTable.getValue();
         List<String> columnNames = getColumnNames(dataTable);
 
@@ -104,9 +106,11 @@ public class ExcelConfig {
                 }
             }
         }
-
+        String categoryName = getCategoryName(dataSearchEntity.getCategory());
+        String fileName = "السحب " + dataSearchEntity.getStartDate().getMonthValue() + " حملة" + categoryName + " تقارب" + ".xlsm";
+        
         String userHome = System.getProperty("user.home");
-        Path downloadPath = Paths.get(userHome, "Downloads", filename + ".xlsm");
+        Path downloadPath = Paths.get(userHome, "Downloads", fileName);
 
         if (!Files.exists(downloadPath.getParent())) {
             Files.createDirectories(downloadPath.getParent());
@@ -157,5 +161,22 @@ public class ExcelConfig {
         }
 
         return camelCase.toString();
+    }
+
+    private String getCategoryName(String category) {
+        String categoryName = null;
+        switch (category) {
+            case "56":
+                categoryName = "رز تايجر";
+                break;
+            case "100":
+                categoryName = "سكر شعبان";
+                break;
+            case "110":
+                categoryName = "رز بسمتي";
+                break;
+        }
+
+        return categoryName;
     }
 }

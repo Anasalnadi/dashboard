@@ -1,6 +1,6 @@
 package com.takarub.dao;
 
-import com.takarub.bean.DataEntity;
+import com.takarub.model.DataEntity;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

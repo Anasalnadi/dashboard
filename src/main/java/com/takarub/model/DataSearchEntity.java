@@ -1,4 +1,4 @@
-package com.takarub.bean;
+package com.takarub.model;
 
 import java.time.LocalDate;
 

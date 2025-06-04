@@ -7,21 +7,20 @@
     <!--data-table-->
     <p:dataTable id="dataTableTest" 
                  binding="#{dataTableTest}" 
-                 value="#{testBean.test}"
+                 value="#{campaignBean.data}"
                  var="item" 
                  reflow="true" rows="5" paginator="true"
                  paginatorPosition="bottom"
                  >
 
         <f:facet name="header">
-
             <p:commandLink value="" 
                            styleClass="mr-2 mb-2" 
-                           actionListener="#{testBean.prepareDownload()}"
+                           actionListener="#{campaignBean.prepareDownload()}"
                            title="Exprot to Excell"
                            update="form:growl">
                 <i class="pi pi-download"></i>
-                <f:setPropertyActionListener target="#{testBean.dataTable}" value="#{dataTableTest}" />
+                <f:setPropertyActionListener target="#{campaignBean.dataTable}" value="#{dataTableTest}" />
             </p:commandLink>
         </f:facet>
 

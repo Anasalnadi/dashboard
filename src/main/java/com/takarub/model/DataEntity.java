@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.takarub.bean;
+package com.takarub.model;
 
 import java.sql.Timestamp;
 
@@ -14,8 +14,6 @@ import java.sql.Timestamp;
  */
 public class DataEntity {
 
-//    private int id;
-
     private String code;
 
     private Timestamp sentDate;
@@ -23,14 +21,6 @@ public class DataEntity {
     private String competitionId;
     
     private String msisdn;
-
-//    public int getId() {
-//        return id;
-//    }
-
-//    public void setId(int id) {
-//        this.id = id;
-//    }
 
     public String getCode() {
         return code;
@@ -63,7 +53,5 @@ public class DataEntity {
     public void setMsisdn(String msisdn) {
         this.msisdn = msisdn;
     }
-    
-    
     
 }

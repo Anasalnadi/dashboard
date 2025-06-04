@@ -1,5 +1,7 @@
 package com.takarub.bean;
 
+import com.takarub.model.DataSearchEntity;
+import com.takarub.model.DataEntity;
 import com.takarub.config.ExcelConfig;
 import com.takarub.dao.ContentDao;
 import java.io.IOException;
@@ -19,32 +21,23 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
  */
 @ManagedBean
 @ViewScoped
-public class TestBean implements Serializable {
+public class CampaignBean implements Serializable {
 
     private UIData dataTable;
-    private List<DataEntity> test;
-
     private ExcelConfig excelConfig;
-
+    
+    private List<DataEntity> data;
     private DataSearchEntity dataSearchEntity;
 
     @PostConstruct
     void init() {
         dataSearchEntity = new DataSearchEntity();
-        test = new ArrayList<>();
+        data = new ArrayList<>();
         excelConfig = new ExcelConfig();
-        
-//        test = ContentDao.getInstance().getAllDataEntityTest();
-//        System.out.println("total : " + test.size());
-            
     }
 
     public void prepareDownload() throws IOException, InvalidFormatException {
-        excelConfig.prepareDownload(dataTable);
-    }
-
-    public void downloadDataTableData(String filename, UIData dataTable) throws IOException, InvalidFormatException {
-        excelConfig.downloadDataTableData(filename, dataTable);
+        excelConfig.prepareDownload(dataTable,dataSearchEntity);
     }
 
     public UIData getDataTable() {
@@ -53,14 +46,6 @@ public class TestBean implements Serializable {
 
     public void setDataTable(UIData dataTable) {
         this.dataTable = dataTable;
-    }
-
-    public List<DataEntity> getTest() {
-        return test;
-    }
-
-    public void setTest(List<DataEntity> test) {
-        this.test = test;
     }
 
     public ExcelConfig getExcelConfig() {
@@ -79,6 +64,14 @@ public class TestBean implements Serializable {
         this.dataSearchEntity = dataSearchEntity;
     }
 
+    public List<DataEntity> getData() {
+        return data;
+    }
+
+    public void setData(List<DataEntity> data) {
+        this.data = data;
+    }
+
 
 
     public void search() {
@@ -89,8 +82,8 @@ public class TestBean implements Serializable {
         LocalDate startDate = dataSearchEntity.getStartDate();
         LocalDate endDate = dataSearchEntity.getEndDate();
         String category = dataSearchEntity.getCategory();
-        test = ContentDao.getInstance().getAllDataEntityTest(category,startDate,endDate);
-        System.out.println("total "+ test.size());
+        data = ContentDao.getInstance().getAllDataEntityTest(category,startDate,endDate);
+        System.out.println("total "+ data.size());
     }
 
 }
